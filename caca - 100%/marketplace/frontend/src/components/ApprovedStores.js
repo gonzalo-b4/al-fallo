@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ApprovedStores = ({ token }) => {
+const ApprovedStores = ({ token, role }) => {
     const [stores, setStores] = useState([]);
 
     useEffect(() => {
@@ -67,8 +67,12 @@ const ApprovedStores = ({ token }) => {
                 {stores.map(store => (
                     <li key={store._id}>
                         {store.name} - {store.status}
-                        <button onClick={() => suspendStore(store._id)}>Suspender</button>
-                        <button onClick={() => deleteStore(store._id)}>Eliminar</button>
+                        {role === 'admin' && (
+                            <>
+                                <button onClick={() => suspendStore(store._id)}>Suspender</button>
+                                <button onClick={() => deleteStore(store._id)}>Eliminar</button>
+                            </>
+                        )}
                     </li>
                 ))}
             </ul>

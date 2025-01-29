@@ -29,17 +29,21 @@ const Login = ({ setToken, setRole }) => {
     };
 
     return (
-        <form onSubmit={onSubmit}>
-            <div>
-                <label>correo</label>
-                <input type="email" name="email" value={email} onChange={onChange} required />
-            </div>
-            <div>
-                <label>contraseña</label>
-                <input type="password" name="password" value={password} onChange={onChange} required />
-            </div>
-            <button type="submit">iniciar sesion</button>
-        </form>
+        <div className="form-container sign-in-container">
+            <form onSubmit={onSubmit}>
+                <h1>Sign in</h1>
+                <div className="social-container">
+                    <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
+                    <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
+                    <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input type="email" name="email" placeholder="Email" value={email} onChange={onChange} required />
+                <input type="password" name="password" placeholder="Password" value={password} onChange={onChange} required />
+                <a href="#">Forgot your password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
     );
 };
 

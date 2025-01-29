@@ -28,28 +28,25 @@ const Register = () => {
     };
 
     return (
-        <form onSubmit={onSubmit}>
-            <div>
-                <label>Nombre</label>
-                <input type="text" name="name" value={name} onChange={onChange} required />
-            </div>
-            <div>
-                <label>correo</label>
-                <input type="email" name="email" value={email} onChange={onChange} required />
-            </div>
-            <div>
-                <label>contraseña</label>
-                <input type="password" name="password" value={password} onChange={onChange} required />
-            </div>
-            <div>
-                <label>Role</label>
+        <div className="form-container sign-up-container">
+            <form onSubmit={onSubmit}>
+                <h1>Create Account</h1>
+                <div className="social-container">
+                    <a href="#" className="social"><i className="fab fa-facebook-f"></i></a>
+                    <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
+                    <a href="#" className="social"><i className="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" name="name" placeholder="Name" value={name} onChange={onChange} required />
+                <input type="email" name="email" placeholder="Email" value={email} onChange={onChange} required />
+                <input type="password" name="password" placeholder="Password" value={password} onChange={onChange} required />
                 <select name="role" value={role} onChange={onChange}>
                     <option value="owner">tienda</option>
                     <option value="admin">Admin</option>
                 </select>
-            </div>
-            <button type="submit">Registrarse</button>
-        </form>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
     );
 };
 

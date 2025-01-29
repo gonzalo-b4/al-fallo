@@ -87,6 +87,22 @@ exports.suspendStore = async (req, res) => {
     }
 };
 
+exports.rejectStore = async (req, res) => {
+    try {
+        const store = await Store.findById(req.params.id);
+        if (!store) {
+            return res.status(404).json({ msg: 'Store not found' });
+        }
+
+        store.status = 'rejected';
+        await store.save();
+        res.json(store);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+};
+
 exports.deleteStore = async (req, res) => {
     try {
         const store = await Store.findById(req.params.id);

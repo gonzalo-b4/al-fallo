@@ -15,7 +15,7 @@ exports.register = async (req, res) => {
             name,
             email,
             password,
-            role
+            role: role || 'user' // Asegurarse de que el rol por defecto sea 'user'
         });
 
         const salt = await bcrypt.genSalt(10);
